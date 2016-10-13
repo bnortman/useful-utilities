@@ -66,6 +66,7 @@ read GoDoIt
 # Create Subdirectory if it doesn't exist, user just ignore error if it exists
 mkdir $SubD
 
+curl --user "$Username:$Password1" -s "https://api.github.com/orgs/$GitHubOrg/repos?per_page=400"
 
 # Connect to GitHub API and Extact up to 400 Repos
 curl --user "$Username:$Password1" -s "https://api.github.com/orgs/$GitHubOrg/repos?per_page=400" | grep -e 'git_url*' | cut -d \" -f 4 | cut -d / -f 5 | cut -d . -f 1 | awk -v subdir=$SubD -v org=$GitHubOrg '{print "/usr/bin/git clone git@github.com/" org "/"  $1 ".git"}' >  $SubD/cloneRepo.sh
@@ -75,5 +76,8 @@ curl --user "$Username:$Password1" -s "https://api.github.com/orgs/$GitHubOrg/re
 chmod 700 $SubD/cloneRepo.sh
 chmod 700 $SubD/pullRepo.sh
 
+echo " "
+echo "Completed please change to Subdirectory " $SubD
+echo " "
 
 
