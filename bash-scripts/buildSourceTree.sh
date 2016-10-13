@@ -69,9 +69,9 @@ mkdir $SubD
 curl --user "$Username:$Password1" -s "https://api.github.com/orgs/$GitHubOrg/repos?per_page=400" | grep -e 'git_url*' | cut -d \" -f 4 
 
 # Connect to GitHub API and Extact up to 400 Repos
-curl --user "$Username:$Password1" -s "https://api.github.com/orgs/$GitHubOrg/repos?per_page=400" | grep -e 'git_url*' | cut -d \" -f 4 | cut -d / -f 5 | cut -d . -f 1 | awk -v subdir=$SubD -v org=$GitHubOrg -v user=$Username '{print "/usr/bin/git clone ssh://" user "/" org "/"  $1 ".git"}' >  $SubD/cloneRepo.sh
+curl --user "$Username:$Password1" -s "https://api.github.com/orgs/$GitHubOrg/repos?per_page=400" | grep -e 'git_url*' | cut -d \" -f 4 | cut -d / -f 5 | cut -d . -f 1 | awk -v subdir=$SubD -v org=$GitHubOrg -v user=$Username '{print "/usr/bin/git clone ssh://git@github.com/" org "/"  $1 ".git"}' >  $SubD/cloneRepo.sh
 
-curl --user "$Username:$Password1" -s "https://api.github.com/orgs/$GitHubOrg/repos?per_page=400" | grep -e 'git_url*' | cut -d \" -f 4 | cut -d / -f 5 | cut -d . -f 1 | awk -v subdir=$SubD -v org=$GitHubOrg -v user=$Username '{print "cd ~/" subdir "/" $1 "\n/usr/bin/git pull ssh://" user "/" org "/"  $1 ".git\ncd ~"}' >  $SubD/pullRepo.sh
+curl --user "$Username:$Password1" -s "https://api.github.com/orgs/$GitHubOrg/repos?per_page=400" | grep -e 'git_url*' | cut -d \" -f 4 | cut -d / -f 5 | cut -d . -f 1 | awk -v subdir=$SubD -v org=$GitHubOrg -v user=$Username '{print "cd ~/" subdir "/" $1 "\n/usr/bin/git pull ssh://git@github.com/" org "/"  $1 ".git\ncd ~"}' >  $SubD/pullRepo.sh
 
 chmod 700 $SubD/cloneRepo.sh
 chmod 700 $SubD/pullRepo.sh
