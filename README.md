@@ -1,4 +1,4 @@
-# useful-utilities
+# Useful Utilities
 A Set of useful tools for Development
 
 #GitHub Organization Sync Utility 
