@@ -24,3 +24,8 @@ These scripts can then be set to automatically sync the latest from a GitHub Rep
  	You then need to run the cloneRepo.sh the first time and every time a new repo in added
 
 	you then need to run the pullRepo.sh every time you want to get the latest code from Github
+
+# Interesting Info
+	Found this link [http://stackoverflow.com/questions/1891653/how-do-i-handle-git-branches-in-opengrok]
+	Has a script for handling branches
+	
