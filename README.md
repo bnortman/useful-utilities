@@ -1,5 +1,10 @@
 # Useful Utilities
-A Set of useful tools for Development
+A Set of useful tools for Development and Operations automatiion
+1.  buildSourceTree.sh
+*   Enabling you to pull down multiple organizationations repositories.
+2.  Current Support for git/github, with hg/bitbucket support comming soom.
+
+
 
 ## GitHub Organization Sync Utility  
 **Location:** (/bash-scripts/buildSourceTree.sh)  
