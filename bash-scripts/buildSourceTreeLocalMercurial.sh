@@ -119,8 +119,7 @@ echo " "
 echo "Completed please change to Subdirectory " $SubD
 echo " "
 
-curl --user "bill.nortman@kareo.com:dd" -s "https://api.bitbucket.org/2.0/repositories/kareo?pagelen=100&page=6" | grep -e 'clone*' | jq '.values[].links.clone[].href' | grep ssh | cut -d \" -f 2
-curl --user "bill.nortman@kareo.com:dd" -s "https://api.bitbucket.org/2.0/repositories/kareo?pagelen=100&page=6" | grep -e 'clone*' | jq '.values[].links.clone[].href' | grep ssh | cut -d \" -f 2 | cut -d / -f 5
+#curl --user "testuser@mydomain.com:dd" -s "https://api.bitbucket.org/2.0/repositories/kareo?pagelen=100&page=6" | grep -e 'clone*' | jq '.values[].links.clone[].href' | grep ssh | cut -d \" -f 2
 
 
 
